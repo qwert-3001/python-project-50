@@ -1,6 +1,6 @@
 import argparse
 
-def testing_argparse():
+def custom_parse():
     parser = argparse.ArgumentParser()
     parser.add_argument('first_file',
                         help='Input your first file',
@@ -12,4 +12,4 @@ def testing_argparse():
                         help='set format of output',
                         choices=['plan', 'json'])
     args = parser.parse_args()
-    return args.first_file, args.second_file
+    return {'first_file': args.first_file, 'second_file': args.second_file}

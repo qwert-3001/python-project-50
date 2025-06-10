@@ -15,5 +15,6 @@ build-backend = "hatchling.build"
 packages = ["gendiff"]
 
 [project.scripts]
-gendiff = "gendiff.scripts.gendiff:main"
+gendiff = "gendiff.scripts.main:main"
+generate_diff = "gendiff.scripts.gendiff:generate_diff"
 parser = "gendiff.scripts.parser:testing_argparse"
