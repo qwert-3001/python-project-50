@@ -1,5 +1,6 @@
 import argparse
 
+
 def custom_parse():
     parser = argparse.ArgumentParser()
     parser.add_argument('first_file',

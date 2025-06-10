@@ -5,7 +5,9 @@ version = "0.1.0"
 description = "gendiff-app"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "ruff>=0.11.13",
+]
 
 [build-system]
 requires = ["hatchling"]
