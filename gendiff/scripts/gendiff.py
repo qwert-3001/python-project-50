@@ -1,5 +1,8 @@
 
 def generate_diff(file1, file2):
+
+    if not file1 and not file2:
+        return 'Two files is empty...'
     
     first_file = file1
     second_file = file2
