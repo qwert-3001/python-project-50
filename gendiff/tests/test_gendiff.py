@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-import gendiff.tests.data
+import gendiff.tests.data  # noqa: F401
 from gendiff.scripts.gendiff import generate_diff
 
 
