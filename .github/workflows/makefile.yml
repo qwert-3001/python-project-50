@@ -11,19 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-verison: ['3.9', '3.10', '3.11']
+        python-versison: ['3.9', '3.10', '3.11']
         
     steps:
     - uses: actions/checkout@v4
 
-    - uses: action/setup-python@v4
+    - uses: actions/setup-python@v4
       with:
         python-verison: ${{ matrix.python-version }}
 
     - name: install uv
       run: |
-        'pip install --upgrade pip'
-        'pip install uv'
+        pip install --upgrade pip
+        pip install uv
 
     - name: Install dependecies
       run: make install
