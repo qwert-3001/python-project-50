@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - uses: action/setup-python@v5
+    - uses: action/setup-python@v4
       with:
         python-verison: ${{ matrix.python-version }}
 
