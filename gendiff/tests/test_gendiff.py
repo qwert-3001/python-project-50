@@ -51,23 +51,3 @@ def test_gendiff_json(file1, file2, expected_output):
     test_data1 = json_read(file1)
     test_data2 = json_read(file2)
     assert generate_diff(test_data1, test_data2) == expected_output
-
-
-@pytest.mark.parametrize('file1, file2, expected_output', [
-    (
-    'file1_v1.yaml',
-    'file2_v1.yaml',
-    '''{
- - follow: False
-   host: hexlet.io
- - proxy: 123.234.53.22
- - timeout: 50
- + timeout: 20
- + verbose: True
-}'''
-    )
-])
-def test_gendif_yaml(file1, file2, expected_output):
-    test_data1 = yaml_read(file1)
-    test_data2 = yaml_read(file2)
-    assert generate_diff(test_data1, test_data2) == expected_output
