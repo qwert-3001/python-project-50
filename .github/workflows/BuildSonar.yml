@@ -17,5 +17,6 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_PROJECT_KEY: qwert-3001_python-project-50
-          SONAR_ORGANIZATION: qwert-3001
+        with:
+          projectKey: qwert-3001_python-project-50
+          organization: qwert-3001
