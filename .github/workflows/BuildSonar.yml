@@ -18,5 +18,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          projectKey: qwert-3001_python-project-50
-          organization: qwert-3001
+          args: >
+            -Dsonar.projectKey=qwert-3001_python-project-50
+            -Dsonar.organization=qwert-3001
