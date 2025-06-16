@@ -1,15 +1,22 @@
 import json
 
 import pytest
+import yaml
 
 import gendiff.tests.data  # noqa: F401
 from gendiff.scripts.gendiff import generate_diff
+from gendiff.scripts.parser import read_file
 
 
 def json_read(file_name):
     with open(f'gendiff/tests/data/{file_name}') as f:
         return json.load(f)
-    
+
+
+def yaml_read(file_name):
+    with open(f'gendiff/tests/data/{file_name}') as f:      
+        return yaml.safe_load(f)
+
 
 @pytest.mark.parametrize('file1, file2, expected_output', [
     (
@@ -41,7 +48,27 @@ def json_read(file_name):
 }'''
     )
 ])
-def test_gendiff(file1, file2, expected_output):
+def test_gendiff_json(file1, file2, expected_output):
     test_data1 = json_read(file1)
     test_data2 = json_read(file2)
+    assert generate_diff(test_data1, test_data2) == expected_output
+
+
+@pytest.mark.parametrize('file1, file2, expected_output', [
+    (
+    'file1_v1.yaml',
+    'file2_v1.yaml',
+    '''{
+ - follow: False
+   host: hexlet.io
+ - proxy: 123.234.53.22
+ - timeout: 50
+ + timeout: 20
+ + verbose: True
+}'''
+    )
+])
+def test_gendif_yaml(file1, file2, expected_output):
+    test_data1 = yaml_read(file1)
+    test_data2 = yaml_read(file2)
     assert generate_diff(test_data1, test_data2) == expected_output

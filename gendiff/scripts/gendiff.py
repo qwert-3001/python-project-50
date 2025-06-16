@@ -5,7 +5,7 @@ def generate_diff(file1, file2):
         return 'Two files is empty...'
     
     first_file = file1
-    second_file = file2
+    second_file = file2    
 
     sorted_keys = sorted(set(first_file.keys() | set(second_file.keys())))
     diff_file = []
@@ -30,4 +30,3 @@ def generate_diff(file1, file2):
     resualt = '{\n' + '\n'.join(diff_file) + '\n}'
 
     return resualt
-
