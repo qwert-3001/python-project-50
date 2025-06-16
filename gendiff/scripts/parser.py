@@ -9,7 +9,7 @@ def read_file():
     first_file = custom_parse()['first_file']
     second_file = custom_parse()['second_file']
 
-    # Проверка расширения и закгрузка файлов
+    # Проверка расширения и загрузка файлов
     try:
         # Загрузка json файлов
         if first_file.endswith('.json') and second_file.endswith('.json'):

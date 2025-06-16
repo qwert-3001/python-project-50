@@ -7,6 +7,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pytest>=8.4.0",
+    "pytest-cov>=6.2.1",
     "pyyaml>=6.0.2",
     "ruff>=0.11.13",
 ]
@@ -22,3 +23,5 @@ packages = ["gendiff"]
 gendiff = "gendiff.scripts.main:main"
 generate_diff = "gendiff.scripts.gendiff:generate_diff"
 parser = "gendiff.scripts.parser:testing_argparse"
+read_file = "gendiff.scripts.parser:read_file"
+custom_parse = "gendiff.scripts.parser:custom_parse"
