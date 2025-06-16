@@ -5,7 +5,6 @@ import yaml
 
 import gendiff.tests.data  # noqa: F401
 from gendiff.scripts.gendiff import generate_diff
-from gendiff.scripts.parser import read_file
 
 
 def json_read(file_name):
