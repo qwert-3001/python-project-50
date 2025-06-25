@@ -6,10 +6,14 @@ description = "gendiff-app"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "pytest>=8.4.0",
-    "pytest-cov>=6.2.1",
     "pyyaml>=6.0.2",
-    "ruff>=0.11.13",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.0",
 ]
 
 [build-system]
