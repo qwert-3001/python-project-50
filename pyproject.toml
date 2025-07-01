@@ -25,7 +25,3 @@ packages = ["gendiff"]
 
 [project.scripts]
 gendiff = "gendiff.scripts.main:main"
-generate_diff = "gendiff.scripts.gendiff:generate_diff"
-parser = "gendiff.scripts.parser:testing_argparse"
-read_file = "gendiff.scripts.parser:read_file"
-custom_parse = "gendiff.scripts.parser:custom_parse"

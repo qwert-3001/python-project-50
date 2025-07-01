@@ -1,11 +1,11 @@
-from gendiff.scripts.gendiff import generate_diff
-from gendiff.scripts.parser import read_file
+from .cli import parse_args
+from .gendiff import generate_diff
 
 
 def main():
-    print("Starting diff two file")
-    print(generate_diff(read_file()['first_file'],
-                        read_file()['second_file']))
+    args = parse_args()
+    diff = generate_diff(args.first_file, args.second_file, args.format)
+    print(diff)
 
 
 if __name__ == "__main__":

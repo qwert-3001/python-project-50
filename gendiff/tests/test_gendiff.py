@@ -1,74 +1,39 @@
-import json
+import os
 
 import pytest
-import yaml
 
-import gendiff.tests.data  # noqa: F401
 from gendiff.scripts.gendiff import generate_diff
 
+FIXTURE_PATH = 'gendiff/tests'
+DATA_DIR = os.path.join(FIXTURE_PATH, 'test_data')
+EXPECTED_DIR = os.path.join(FIXTURE_PATH, 'test_data/test_expected')
 
-def json_read(file_name):
-    with open(f'gendiff/tests/data/{file_name}') as f:
-        return json.load(f)
+TEST_CASES = [
+    # flat
+    ('flat_1.json', 'flat_2.json', 'flat_stylish.txt'),
+    ('flat_1.yaml', 'flat_2.yaml', 'flat_stylish.txt'),
 
-
-def yaml_read(file_name):
-    with open(f'gendiff/tests/data/{file_name}') as f:      
-        return yaml.safe_load(f)
-
-
-@pytest.mark.parametrize('file1, file2, expected_output', [
-    (
-    'file1.json',
-    'file2.json',
-    '''{
- - follow: False
-   host: hexlet.io
- - proxy: 123.234.53.22
- - timeout: 50
- + timeout: 20
- + verbose: True
-}'''
-    ),
-    (
-        'file1_v2.json',
-        'file2_v2.json',
-        '''{
- + cache: {'enabled': True, 'size': '500MB'}
- - follow: False
-   host: hexlet.io
- - max_connections: 100
- - proxy: 123.234.53.22
- + proxy: 185.204.11.17
- - ssl: {'enabled': True, 'protocols': ['TLSv1.2', 'TLSv1.3']}
- + ssl: {'enabled': False, 'protocols': ['TLSv1.3']}
- - timeout: 50
- + timeout: 30
-}'''
-    )
-])
-def test_gendiff_json(file1, file2, expected_output):
-    test_data1 = json_read(file1)
-    test_data2 = json_read(file2)
-    assert generate_diff(test_data1, test_data2) == expected_output
+    # nested
+    ('nested_1.json', 'nested_2.json', 'nested_stylish.txt'),
+    ('nested_1.yaml', 'nested_2.yaml', 'nested_stylish.txt')
+]
 
 
-@pytest.mark.parametrize('file1_yaml, file2_yaml, expected_output_yaml', [
-    (
-        'file1_v1.yaml',
-        'file2_v1.yaml',
-        '''{
- - follow: False
-   host: hexlet.io
- - proxy: 123.234.53.22
- - timeout: 50
- + timeout: 20
- + verbose: True
-}'''
-    )
-])
-def test_gendiff_yaml(file1_yaml, file2_yaml, expected_output_yaml):
-    test_yaml_data1 = yaml_read(file1_yaml)
-    test_yaml_data2 = yaml_read(file2_yaml)
-    assert generate_diff(test_yaml_data1,
-                         test_yaml_data2) == expected_output_yaml
+def read_file(file_path):
+    with open(file_path) as f:
+        return f.read().strip()
+    
+
+@pytest.mark.parametrize('file1, file2, expected_file', TEST_CASES)
+def test_gendiff(file1, file2, expected_file):
+    file1_path = os.path.join(DATA_DIR, file1)
+    file2_path = os.path.join(DATA_DIR, file2)
+    expected_path = os.path.join(EXPECTED_DIR, expected_file)
+
+    result = generate_diff(file1_path,
+                           file2_path,
+                           format_name='stylish').strip()
+
+    expected = read_file(expected_path)
+
+    assert result == expected
