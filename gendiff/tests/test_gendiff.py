@@ -22,7 +22,10 @@ TEST_CASES = [
 
     # nested plain
     ('nested_1.json', 'nested_2.json', 'nested_plain.txt', 'plain'),
-    ('nested_1.yaml', 'nested_2.yaml', 'nested_plain.txt', 'plain')
+    ('nested_1.yaml', 'nested_2.yaml', 'nested_plain.txt', 'plain'),
+
+    ('nested_1.json', 'nested_2.json', 'json_format.txt', 'json'),
+    ('nested_1.yaml', 'nested_2.yaml', 'json_format.txt', 'json'),
 ]
 
 

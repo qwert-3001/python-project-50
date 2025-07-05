@@ -8,6 +8,6 @@ def get_formatter(name):
         from .plain import format
         return format
     if name == 'json':
-        from .json import format
-        return format
+        from .json import format_json
+        return format_json
     raise ValueError(f'Unknow format: {name}')
