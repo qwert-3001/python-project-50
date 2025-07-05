@@ -1,6 +1,6 @@
 [project]
 authors = [{name = 'Nikita', email = 'example@mail.com'}]
-name = "gendiff"
+name = "hexlet-code"
 version = "0.1.0"
 description = "gendiff-app"
 readme = "README.md"
