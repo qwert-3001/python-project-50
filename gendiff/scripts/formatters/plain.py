@@ -12,26 +12,26 @@ def format_plain(diff, path=''):
             lines.extend(format_plain(node['children'], current_path))
         elif type_ == 'changed':
             if (isinstance(node['old_value'], dict)):
-                lines.append(f'Property "{current_path}" was updated.'
-                             f'From [complex value]'
-                             f'to "{node['new_value']}"')
+                lines.append(f"Property '{current_path}' was updated."
+                             f"From [complex value]"
+                             f"to '{node['new_value']}'")
             elif (isinstance(node['new_value'], dict)):
-                lines.append(f'Property "{current_path}" was updated.'
-                             f'From "{node['old_value']}"'
-                             f'to [complex value]')
+                lines.append(f"Property '{current_path}' was updated."
+                             f"From '{node['old_value']}'"
+                             f"to [complex value]")
             else:
-                lines.append(f'Property "{current_path}" was updated.'
-                             f'From "{node['old_value']}"'
-                             f'to "{node['new_value']}"')
+                lines.append(f"Property '{current_path}' was updated."
+                             f"From '{node['old_value']}'"
+                             f"to '{node['new_value']}'")
         elif type_ == 'deleted':
-            lines.append(f'Property "{current_path}" was removed')
+            lines.append(f"Property '{current_path}' was removed")
         elif type_ == 'added':
             if (isinstance(node['value'], dict)):
-                lines.append(f'Property "{current_path}" was added '
-                             f'with value: [complex value]')
+                lines.append(f"Property '{current_path}' was added "
+                             f"with value: [complex value]")
             else:
-                lines.append(f'Property "{current_path}" was added '
-                             f'with value: "{node['value']}"')
+                lines.append(f"Property '{current_path}' was added "
+                             f"with value: '{node['value']}'")
         
     return lines
     
