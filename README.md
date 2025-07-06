@@ -3,7 +3,7 @@
 
 Утилита для поиска отличий в конфигурационных файлах.
 
-[![asciicast](https://asciinema.org/a/CIad8CL18YUhrE5O3KK90yvY9.svg)](https://asciinema.org/a/CIad8CL18YUhrE5O3KK90yvY9)
+[![asciicast](https://asciinema.org/a/HzWjYYtC1Nz4tJC4s5GniEWGQ.svg)](https://asciinema.org/a/HzWjYYtC1Nz4tJC4s5GniEWGQ)
 
 ## Описание
 
