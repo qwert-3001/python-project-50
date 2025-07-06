@@ -1,6 +1,8 @@
 
 
 def stringify(value):
+    if isinstance(value, str):
+        value = f"'{value}'"
     if value is None:
         return 'null'
     if isinstance(value, bool):
@@ -22,15 +24,15 @@ def format_plain(diff, path=''):
             if (isinstance(stringify(node['old_value']), dict)):
                 lines.append(f"Property '{current_path}' was updated. "
                              f"From [complex value] "
-                             f"to '{stringify(node['new_value'])}'")
+                             f"to {stringify(node['new_value'])}")
             elif (isinstance(stringify(node['new_value']), dict)):
                 lines.append(f"Property '{current_path}' was updated. "
-                             f"From '{stringify(node['old_value'])}' "
+                             f"From {stringify(node['old_value'])} "
                              f"to [complex value]")
             else:
                 lines.append(f"Property '{current_path}' was updated. "
-                             f"From '{stringify(node['old_value'])}' "
-                             f"to '{stringify(node['new_value'])}'")
+                             f"From {stringify(node['old_value'])} "
+                             f"to {stringify(node['new_value'])}")
         elif type_ == 'deleted':
             lines.append(f"Property '{current_path}' was removed")
         elif type_ == 'added':
@@ -39,7 +41,7 @@ def format_plain(diff, path=''):
                              f"with value: [complex value]")
             else:
                 lines.append(f"Property '{current_path}' was added "
-                             f"with value: '{stringify(node['value'])}'")
+                             f"with value: {stringify(node['value'])}")
         
     return lines
     
