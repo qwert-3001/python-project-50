@@ -48,4 +48,4 @@ def format_plain(diff, path=''):
 
 def format(diff):
     lines = format_plain(diff)
-    return '\n'.join(lines) + '\n'
+    return '\n'.join(lines)
