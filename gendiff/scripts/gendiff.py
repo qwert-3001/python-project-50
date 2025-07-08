@@ -1,7 +1,7 @@
 
 from .diff_builder import build_diff
 from .file_loader import load_file
-from .formatters import get_formatter
+from gendiff.formatters import get_formatter
 
 
 def generate_diff(file_path1, file_path2, format_name='stylish'):

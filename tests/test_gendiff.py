@@ -4,7 +4,7 @@ import pytest
 
 from gendiff.scripts.gendiff import generate_diff
 
-FIXTURE_PATH = 'gendiff/tests'
+FIXTURE_PATH = 'tests'
 DATA_DIR = os.path.join(FIXTURE_PATH, 'test_data')
 EXPECTED_DIR = os.path.join(FIXTURE_PATH, 'test_data/test_expected')
 
