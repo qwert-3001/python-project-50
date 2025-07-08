@@ -35,7 +35,7 @@ jobs:
       - name: Test coverage
         run: |
           source .venv/bin/activate
-          uv run pytest --cov=gendiff --cov-report=xml:coverage.xml --ignore=tests/
+          uv run pytest --cov=gendiff --cov-report=xml:coverage.xml
           
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v5
@@ -46,3 +46,4 @@ jobs:
             -Dsonar.projectKey=qwert-3001_python-project-50
             -Dsonar.organization=qwert-3001
             -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.exclusions=tests/**,**/test_*.py
